@@ -1,0 +1,113 @@
+Spring Core (DI)
+Spring AOP
+Spring DAO Support
+Bean Post Processors
+Spring MVC Basics
+
+
+Spring Core -> Inversion of Control and Dependency injection
+
+
+
+new 
+
+Class.forName   /reflection
+
+clone
+
+seria
+
+
+no need to create an object explicitly, simply register the objects in xml/annotatons approaches
+
+spring container will create an object when ever you need. 
+
+setter based and constructor based DI
+
+Bean Scopes ->  singleton, prototype, request, session, application and globalsession (globalcontext)
+
+	singleton -> creates a single instance through out the 		     application
+		     2. by default, all beans are in singleton	 
+	prototype -> multiple instances can be created.
+
+
+depends-on
+<import resource
+dependency-check
+
+	a. simple -> all primitivate datatype variables should have 		     value
+	b.object   -> reference objects
+	c. all
+	d. default -> no dependecny check
+		
+lazy-init
+default-lazy-init
+Singleton registration in xml
+ServiceLocator
+Lifecycle of bean init-method and destroy methods
+		or InitializingBean interface and DisposableBean
+
+			Auto wiring
+
+NO
+byName
+byType
+constructor
+autodetect
+
+singleton
+autowiring
+initializingbean
+
+
+		Annotations Based Spring 
+
+
+annotation-config
+
+@Required
+@value(100)
+@Aurowired
+@Qualifier
+
+
+@Component 
+
+<context:annotation-config/>
+	
+	<context:component-scan 
+			base-package="com.capgemini.annotationsex.beans"/>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
