@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	
+
+	<bean id="employee" 
+			class="com.ge.coreex.Employee" dependency-check="simple">
+			<property name="id" value="100"/>
+			<property name="name" value="GE Employee"/>
+	</bean>
+		
+	<bean id="employee1" 
+			class="com.ge.coreex.Employee">
+			<property name="id" value="50"/>
+			<property name="name" value="GE Employee1"/>
+	</bean>
+	
+	<bean id="employee2" 
+			class="com.ge.coreex.Employee">
+			<constructor-arg type="int" value="75"/>
+			<constructor-arg type="String" value="GE Emaployee2"/>	
+	</bean>	
+	
+	<bean id="employee3" 
+			class="com.ge.coreex.Employee">
+			<constructor-arg type="int" value="90"/>
+			<constructor-arg type="String" value="GE Emaployee3"/>
+			<property name="salary" value="324324"/>	
+	</bean>
+	
+	<!-- dEPENDENT oBJECTS , dEPENDENCY inJECTON -->
+	<bean id="employeeDAOBean" class="com.ge.dao.EmployeeDAO" 
+				scope="prototype"/>
+	
+	<bean id="employeeService" 
+					class="com.ge.service.EmployeeService"
+					depends-on="employeeDAOBean">
+		<property name="employeeDAO" ref="employeeDAOBean"/>
+		<!-- constructor based DI 
+		<constructor-arg ref="employeeDAOBean"/>-->
+	</bean>
+	
+	<!-- Bean scopes... singleton, prototype, request, session
+	by default all beans are singletons-->
+	<bean id="employeeService1" 
+					class="com.ge.service.EmployeeService" >
+		<property name="employeeDAO" ref="employeeDAOBean"/>
+	</bean>
+		
+</beans>
+
+
+
